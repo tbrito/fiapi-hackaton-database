@@ -23,7 +23,7 @@ jobs:
       - uses: liquibase-github-actions/update@v4.26.0
         with:
           #operation: 'update'
-          driver: "mssql-jdbc-11.2.0.jre18.jar"
+          driver: "driver/mssql-jdbc-11.2.0.jre18.jar"
           changeLogFile: 'marcacao/202403211414_createMarcacao.sql'
           defaultSchemaName: "dbo"
           username: ${{ secrets.USERNAME }}

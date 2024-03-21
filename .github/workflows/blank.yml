@@ -19,12 +19,13 @@ jobs:
     runs-on: ubuntu-latest
     name: LiquibasePontoEletronico
     steps:
-      - uses: actions/checkout@v2
-      - uses: liquibase/liquibase-github-action@v7
+      - uses: actions/checkout@v3
+      - uses: liquibase-github-actions/update@v4.26.0
         with:
-          operation: 'update'
-          classpath: 'marcacao'
-          changeLogFile: '202403211414_createMarcacao.sql'
+          #operation: 'update'
+          driver: "mssql-jdbc-11.2.0.jre18.jar"
+          changeLogFile: 'marcacao/202403211414_createMarcacao.sql'
+          defaultSchemaName: "dbo"
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           url: '${{ secrets.URL }}'      

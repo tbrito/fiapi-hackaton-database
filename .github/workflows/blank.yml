@@ -21,13 +21,14 @@ jobs:
     steps:
       - name: workspace
         run: |
-          ls
+          echo ${{github.workspace}}
+
       - uses: actions/checkout@v3
       - uses: liquibase-github-actions/update@v4.26.0
         with:
           searchPath: .
           driver: "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-          changeLogFile: 'changelogs/202403211414_createMarcacao.sql'
+          changeLogFile: ${{ github.workspace }} '/changelogs/202403211414_createMarcacao.sql'
           defaultSchemaName: "dbo"
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}

@@ -5,4 +5,4 @@ CREATE TABLE Marcacao (
 	CriadoEm datetime NOT NULL,
 	CriadoPor varchar(254) NULL,
 	CONSTRAINT PK_MarcacaoId PRIMARY KEY (Id)
-);
+)

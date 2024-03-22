@@ -26,7 +26,7 @@ jobs:
         with:
           searchPath: ${{github.action_path}}
           driver: "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-          changeLogFile: ${{github.action_path}}/changelogs/202403211414_createMarcacao.sql
+          changeLogFile: ./changelogs/202403211414_createMarcacao.sql
           defaultSchemaName: "dbo"
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}

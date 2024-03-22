@@ -19,15 +19,15 @@ jobs:
     runs-on: ubuntu-latest
     name: LiquibasePontoEletronico
     steps:
-      - run: echo ${{ github.path }}
+      - run: echo ${{ github.workspace }}
 
       - uses: actions/checkout@v4
       - uses: liquibase-github-actions/update@v4.26.0
       
         with:
-          searchPath: ${{ github.path }}
+          searchPath: ${{ github.workspace }}
           driver: "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-          changeLogFile: ${{ github.path }}/changelogs/202403211414_createMarcacao.sql
+          changeLogFile: ${{ github.workspace }}/changelogs/202403211414_createMarcacao.sql
           defaultSchemaName: "dbo"
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}

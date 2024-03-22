@@ -24,7 +24,7 @@ jobs:
       
         with:
           operation: update
-          classpath: '/changelogs'
+          classpath: '/'
           #driver: "com.microsoft.sqlserver.jdbc.SQLServerDriver"
           changeLogFile: '202403211414_createMarcacao.sql'
           # defaultSchemaName: "dbo"

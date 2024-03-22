@@ -10,10 +10,6 @@ on:
   pull_request:
     branches: [ "release/*" ]
 
-    
-env:
-  GITHUB_PATH: ${{ github.path }}      
-
   # Allows you to raaaun this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -23,10 +19,13 @@ jobs:
     runs-on: ubuntu-latest
     name: LiquibasePontoEletronico
     steps:
-      - uses: actions/checkout@v2
-      - uses: liquibase-github-actions/update@v2
+      - run: echo ${{ vars.HOME }}
+
+      - uses: actions/checkout@v4
+      - uses: liquibase-github-actions/update@v4.26.0
+      
         with:
-          classpath: 'changelogs'
+          searchPath: ${{ vars.HOME }}
           driver: "com.microsoft.sqlserver.jdbc.SQLServerDriver"
           changeLogFile: ${{ vars.HOME }}/changelogs/202403211414_createMarcacao.sql
           defaultSchemaName: "dbo"

@@ -12,7 +12,7 @@ on:
 
     
 env:
-  GITHUB_ACTION_PATH: ${{ github.action_path }}      
+  GITHUB_PATH: ${{ github.path }}      
 
   # Allows you to raaaun this workflow manually from the Actions tab
   workflow_dispatch:
@@ -23,15 +23,15 @@ jobs:
     runs-on: ubuntu-latest
     name: LiquibasePontoEletronico
     steps:
-      - run: echo ${{ env.GITHUB_ACTION_PATH }}
+      - run: echo ${{ env.GITHUB_PATH }}
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: liquibase-github-actions/update@v4.26.0
       
         with:
-          searchPath: ${{ env.GITHUB_ACTION_PATH }}
+          searchPath: ${{ env.GITHUB_PATH }}
           driver: "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-          changeLogFile: ${{ env.GITHUB_ACTION_PATH }}/changelogs/202403211414_createMarcacao.sql
+          changeLogFile: ${{ env.GITHUB_PATH }}/changelogs/202403211414_createMarcacao.sql
           defaultSchemaName: "dbo"
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}

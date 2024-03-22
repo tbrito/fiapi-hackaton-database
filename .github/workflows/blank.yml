@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     name: LiquibasePontoEletronico
     steps:
-      - run: echo ${{ github.action_path }}
+      - run: echo $GITHUB_ACTION_PATH
 
       - uses: actions/checkout@v2
       - uses: liquibase-github-actions/update@v4.26.0

@@ -28,7 +28,7 @@ jobs:
         with:
           classpath: 'changelogs'
           driver: "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-          changeLogFile: ${{ HOME }}/changelogs/202403211414_createMarcacao.sql
+          changeLogFile: ${{ vars.HOME }}/changelogs/202403211414_createMarcacao.sql
           defaultSchemaName: "dbo"
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}

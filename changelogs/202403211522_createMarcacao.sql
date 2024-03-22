@@ -1,6 +1,6 @@
 --liquibase formatted sql
 
-CREATE TABLE Marcacao (
+CREATE TABLE dbo.Marcacao (
 	Id int IDENTITY(1,1) NOT NULL,
 	CriadoEm datetime NOT NULL,
 	CriadoPor varchar(254) NULL,

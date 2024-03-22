@@ -23,10 +23,11 @@ jobs:
       - uses:  liquibase/liquibase-github-action@v2
       
         with:
+          operation: update
           classpath: 'changelogs'
-          driver: "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+          #driver: "com.microsoft.sqlserver.jdbc.SQLServerDriver"
           changeLogFile: '202403211414_createMarcacao.sql'
-          defaultSchemaName: "dbo"
+          # defaultSchemaName: "dbo"
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           url: '${{ secrets.URL }}'      
